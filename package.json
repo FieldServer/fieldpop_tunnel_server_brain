@@ -1,0 +1,34 @@
+{
+  "name": "@smc/fieldpop_tunnel_server",
+  "version": "0.0.0-TR2323-fieldpop-0.0.1",
+  "description": "A FieldPoP Tunnel Server for IIoT gateways",
+  "scripts": {
+    "test": "npm run coverage && cat coverage.txt",
+    "start": "node ./bin/fieldpop_tunnel_server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FieldServer/fieldpop_tunnel_server.git"
+  },
+  "keywords": [
+    "fieldpop",
+    "tunnel",
+    "server"
+  ],
+  "author": "C Calitz, J Eggers",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/FieldServer/fieldpop_tunnel_server/issues"
+  },
+  "homepage": "https://github.com/FieldServer/fieldpop_tunnel_server#readme",
+  "devDependencies": {
+    "chai": "^3.4.0"
+  },
+  "dependencies": {
+    "@smc/tunnel-proxy": "0.0.0",
+    "@smc/tunnel-service": "0.0.1",
+    "assert": "^1.3.0",
+    "happner": "1.0.1",
+    "happner-resources": "0.0.10"
+  }
+}

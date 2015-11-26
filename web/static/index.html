@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <!--angular-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--bootstrap-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!--app-->
+    <script src="/api/client"></script>
+    <script src="js/index.js"></script>
+
+    <meta charset=utf-8/>
+    <title>FieldPoP Tunnel Test</title>
+</head>
+<body>
+
+<div ng-controller="myController" class="container">
+
+    <h2> FieldPoP Tunnel Test</h2>
+    <hr>
+
+    <div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Device Name</th>
+                    <!--<th>Tunnel URL</th>-->
+                    <th>Proxy URL</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(tunnel_id, tunnel) in tunnel_info">
+                    <td>{{tunnel.deviceName}}</td>
+                    <!--<td><a href="http://{{tunnel.tunnelUrl}}">{{tunnel.tunnelUrl}}</a></td>-->
+                    <td> <a target="_blank" href="http://{{tunnel.proxyUrl}}">{{tunnel.proxyUrl}}</a></td>
+                    <td>{{tunnel.status}}</td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

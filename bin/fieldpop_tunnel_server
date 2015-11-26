@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+var Happner = require('happner');
+var meshConfig = require('../config/fieldpop_tunnel_server');
+var proxyListenPort = meshConfig.proxyListenPort;
+
+var Server = function (mesh) {
+  console.log('READY'); // hacky signal to unit test parent process
+  return mesh.event['tunnel-proxy'].onAsync('*',
+    function (data, meta) {
+      if (meta.path.match(/route\/create$/)) {
+        console.log('\n\n\n' + meta.path);
+        console.log('curl http://' + data.hostref + '.127.0.0.1.xip.io:' + proxyListenPort + '\n\n\n');
+      }
+    })
+    .then(function () {
+
+    })
+    .catch(function (e) {
+      console.log(e);
+      process.exit(1);
+    })
+};
+
+Happner.create(meshConfig).then(Server).catch(function (e) {
+  console.error(e.stack || e);
+  process.exit(1);
+});

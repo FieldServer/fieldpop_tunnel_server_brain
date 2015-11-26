@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var Happner = require('happner');
+var meshConfig = require('../config/tunnel-client');
+
+var Client = function(mesh) {
+  console.log('READY'); // hacky signal to unit test parent process
+};
+
+Happner.create(meshConfig).then(Client).catch(function(e) {
+  console.log('ERROR: ', e);
+  console.error(e.stack || e);
+  process.exit(1);
+});
